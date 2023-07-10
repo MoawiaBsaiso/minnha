@@ -1,0 +1,30 @@
+<svg data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" width="260" height="147.417" viewBox="0 0 260 147.417">
+    <defs>
+        <linearGradient id="6f3kkeamva" x1="-.194" y1=".508" x2="1.462" y2=".489" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#3caca2"/>
+            <stop offset=".65" stop-color="#124486"/>
+            <stop offset="1" stop-color="#153f5f"/>
+        </linearGradient>
+    </defs>
+    <g data-name="Layer 1">
+        <path data-name="Path 7287" d="M53.992 14.842h16.667V0H35.26v14.842h18.732z" transform="translate(-19.935)" style="fill:#124486"/>
+        <path data-name="Rectangle 713" transform="translate(157.965 .03)" style="fill:#124486" d="M0 0h20.31v14.838H0z"/>
+        <path data-name="Path 7288" d="M178.275 100.742v-41.1h-20.331v41.1l-21.731-.035V59.61H80.147v20.331h35.738v20.766H61.429V59.61H0v61.45h178.236zM41.1 100.707H20.331V79.941H41.1z" transform="translate(0 -33.703)" style="fill:#124486"/>
+        <path data-name="Path 7289" d="M477.221 59.61H456.89v41.1h20.331V79.941h20.766v20.766h-20.766v20.331h41.1V59.61z" transform="translate(-258.319 -33.703)" style="fill:url(#6f3kkeamva)"/>
+        <path data-name="Path 7290" d="M65.54 263.16v.1l.065-.1z" transform="translate(-37.055 -148.787)" style="fill:#124486"/>
+        <path data-name="Path 7291" d="M65.54 281.213v18.406h8.2V269.2z" transform="translate(-37.055 -152.202)" style="fill:#124486"/>
+        <path data-name="Path 7292" d="M27.783 263.16h-.043l.043.061z" transform="translate(-15.684 -148.787)" style="fill:#124486"/>
+        <path data-name="Path 7293" d="M8.98 299.574h8.2v-18.441l-8.2-12.013z" transform="translate(-5.077 -152.156)" style="fill:#124486"/>
+        <path data-name="Path 7294" d="m46.72 275.375 4.959 7.271 3.221-4.724V263.38z" transform="translate(-26.415 -148.911)" style="fill:#124486"/>
+        <path data-name="Path 7295" d="M73.737 263.16h-8.132l-.065.1v14.54l8.2-12.013z" transform="translate(-37.055 -148.787)" style="fill:#124486"/>
+        <path data-name="Path 7296" d="M27.84 263.3v14.542l3.247 4.759 4.959-7.271z" transform="translate(-15.74 -148.866)" style="fill:#124486"/>
+        <path data-name="Path 7297" d="M17.133 263.16H8.98v2.59l8.2 12.013v-14.542z" transform="translate(-5.077 -148.787)" style="fill:#124486"/>
+        <path data-name="Path 7298" d="m35.31 298.251 4.959 7.271 4.959-7.271-4.959-7.271z" transform="translate(-19.964 -164.516)" style="fill:#124486"/>
+        <path data-name="Rectangle 714" transform="translate(52.649 114.373)" style="fill:#124486" d="M0 0h8.193v33.039H0z"/>
+        <path data-name="Path 7299" d="M201.312 263.16v20.084l-16.389-20.084h-8.193v33.04h8.193v-20.08l16.389 20.08h8.2v-33.04z" transform="translate(-99.92 -148.787)" style="fill:#124486"/>
+        <path data-name="Path 7300" d="M313.466 263.16v20.084l-16.389-20.084h-8.2v33.04h8.2v-20.08l16.389 20.08h8.193v-33.04z" transform="translate(-163.328 -148.787)" style="fill:#124486"/>
+        <path data-name="Path 7301" d="M432.042 263.16v12.426h-16.389V263.16h-8.193v33.04h8.193v-12.422h16.389V296.2h8.193v-33.04z" transform="translate(-230.372 -148.787)" style="fill:#124486"/>
+        <path data-name="Path 7302" d="M537.3 296.244h8.662l-11.634-32.774h-9.562l-11.586 32.774h8.662l1.96-5.446h11.526zM526.753 282.6l2.8-7.775 2.812 7.775z" transform="translate(-290.144 -148.962)" style="fill:#124486"/>
+        <path data-name="Rectangle 715" transform="translate(178.236 67.005)" style="fill:#f5d45c" d="M0 0h20.297v20.331H0z"/>
+    </g>
+</svg>
