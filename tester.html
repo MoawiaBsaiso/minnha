@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verification Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f6f6f9;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border-radius: 4px;
+    }
+
+    .digit-input {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      padding: 8px;
+      font-size: 18px;
+      text-align: center;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      outline: none;
+    }
+
+    .digit-input:focus {
+      border-color: #007bff;
+    }
+
+    .submit-button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Verification Form</h2>
+    <form id="verificationForm">
+      <div id="digitContainer">
+        <input type="text" class="digit-input" maxlength="1">
+        <input type="text" class="digit-input" maxlength="1">
+        <input type="text" class="digit-input" maxlength="1">
+        <input type="text" class="digit-input" maxlength="1">
+        <input type="text" class="digit-input" maxlength="1">
+        <input type="text" class="digit-input" maxlength="1">
+      </div>
+      <div class="form-group">
+        <button type="submit" class="submit-button">Verify Account</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    var digitInputs = Array.from(document.getElementsByClassName('digit-input'));
+
+    digitInputs.forEach(function(input, index) {
+      input.addEventListener('input', function(e) {
+        if (input.value.length === 1) {
+          if (index < digitInputs.length - 1) {
+            digitInputs[index + 1].focus();
+          } else {
+            digitInputs[0].focus();
+          }
+        }
+      });
+
+      input.addEventListener('paste', function(e) {
+        e.preventDefault();
+        var paste = e.clipboardData.getData('text').trim().substr(0, 6);
+        paste.split('').forEach(function(char, idx) {
+          if (idx < digitInputs.length) {
+            digitInputs[idx].value = char;
+          }
+        });
+      });
+    });
+
+    document.getElementById('verificationForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      var verificationCode = digitInputs.map(function(input) {
+        return input.value;
+      }).join('');
+
+      // Send verificationCode to the server for processing
+      // Replace the URL and API endpoint with your own server-side implementation
+      var url = 'https://your-api-endpoint.com/verify';
+      var data = { code: verificationCode };
+
+      // Perform a fetch request to the server
+      fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+      .then(function(response) {
+        if (response.ok) {
+          // Verification successful
+          alert('Verification Successful');
+        } else {
+          // Verification failed
+          alert('Verification Failed. Please try again.');
+        }
+      })
+      .catch(function(error) {
+        console.log('Error:', error);
+        alert('An error occurred. Please try again later.');
+      });
+    });
+  </script>
+</body>
+</html>
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#">
+        <h4 style="text-align: center; margin-bottom: 1rem;">Enter your code</h4>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+          <input type="tel" maxlength="1" pattern="[0-9]" style="flex: 1; text-align: center; font-size: 1.25rem;">
+          <input type="tel" maxlength="1" pattern="[0-9]" style="flex: 1; text-align: center; font-size: 1.25rem;">
+          <input type="tel" maxlength="1" pattern="[0-9]" style="flex: 1; text-align: center; font-size: 1.25rem;">
+          <input type="tel" maxlength="1" pattern="[0-9]" style="flex: 1; text-align: center; font-size: 1.25rem;">
+          <input type="tel" maxlength="1" pattern="[0-9]" style="flex: 1; text-align: center; font-size: 1.25rem;">
+          <input type="tel" maxlength="1" pattern="[0-9]" style="flex: 1; text-align: center; font-size: 1.25rem;">
+        </div>
+        <button type="submit" style="width: 100%; background-color: #007bff; color: #fff; padding: 0.5rem;">Verify account</button>
+      </form>
+      <script>
+        const form = document.querySelector('form');
+        const inputs = form.querySelectorAll('input');
+        const KEYBOARDS = {
+          backspace: 8,
+          arrowLeft: 37,
+          arrowRight: 39,
+        };
+      
+        function handleInput(e) {
+          const input = e.target;
+          const nextInput = input.nextElementSibling;
+          if (nextInput && input.value) {
+            nextInput.focus();
+            if (nextInput.value) {
+              nextInput.select();
+            }
+          }
+        }
+      
+        function handlePaste(e) {
+          e.preventDefault();
+          const paste = e.clipboardData.getData('text');
+          inputs.forEach((input, i) => {
+            input.value = paste[i] || '';
+          });
+        }
+      
+        function handleBackspace(e) {
+          const input = e.target;
+          if (input.value) {
+            input.value = '';
+            return;
+          }
+      
+          input.previousElementSibling.focus();
+        }
+      
+        function handleArrowLeft(e) {
+          const previousInput = e.target.previousElementSibling;
+          if (!previousInput) return;
+          previousInput.focus();
+        }
+      
+        function handleArrowRight(e) {
+          const nextInput = e.target.nextElementSibling;
+          if (!nextInput) return;
+          nextInput.focus();
+        }
+      
+        form.addEventListener('input', handleInput);
+        inputs[0].addEventListener('paste', handlePaste);
+      
+        inputs.forEach(input => {
+          input.addEventListener('focus', e => {
+            setTimeout(() => {
+              e.target.select();
+            }, 0);
+          });
+      
+          input.addEventListener('keydown', e => {
+            switch (e.keyCode) {
+              case KEYBOARDS.backspace:
+                handleBackspace(e);
+                break;
+              case KEYBOARDS.arrowLeft:
+                handleArrowLeft(e);
+                break;
+              case KEYBOARDS.arrowRight:
+                handleArrowRight(e);
+                break;
+              default:
+            }
+          });
+        });
+      </script>
+            
+</body> -->
+<!-- </html>
+
+
+<!doctype html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Reset Password Code</title>
+  <meta name="description" content="New Account Email Template.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+  <style type="text/css">
+    a:hover {
+      text-decoration: underline !important;
+    }
+    .verification-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .code-inputs {
+    display: flex;
+  }
+
+  .verification-input {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    text-align: center;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+  }
+
+  .verification-input:last-child {
+    margin-right: 0;
+  }
+  </style>
+</head>
+
+<body marginheight="0" topmargin="0" marginwidth="0" style="margin: 0px; background-color: #fafafa;" leftmargin="0">
+  <table dir="rtl" cellspacing="0" border="0" cellpadding="0" width="100%" bgcolor="#fafafa"
+    style="@import url(https://fonts.googleapis.com/css?family=Rubik:300,400,500,700|Open+Sans:300,400,600,700); font-family: 'Open Sans', sans-serif;">
+    <tr>
+      <td style="background-color: #fafafa;">
+        <table style="background-color: #fafafa; max-width:670px; margin:0 auto;" width="100%" border="0"
+          align="center" cellpadding="0" cellspacing="0">
+          <tr>
+            <td style="height:80px;">&nbsp; </td>
+          </tr>
+          <tr>
+            <td style="text-align:start;">
+              <a href="https://www.minnha.com/" title="logo" target="_blank">
+
+                <img width="80" src="https://i.ibb.co/MGzFT2R/layer-2.png" title="logo" alt="logo">
+
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td style="height:20px;">&nbsp;</td>
+          </tr>
+          <tr>
+            <td style="position: relative;">
+              <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0"
+                style="position: relative; z-index: 1;max-width:670px; background:#fff; border-radius:5px; text-align:center;">
+                <div style="position: absolute;top: -10%;left: -1%;z-index: 0;"><img
+                    src="https://i.ibb.co/yhdsWr2/square.png" style="width: 120px;" alt=""></div>
+
+                <tr style="text-align: start;">
+                  <td style="height:52px;background: rgb(21,63,95);
+                  background: linear-gradient(90deg, rgba(21,63,95,1) 35%, rgba(18,68,134,1) 72%, rgba(60,172,162,1) 100%);color: #fff; padding-right: 16px;font-size: 18px;font-weight: bold;border-radius: 5px 5px 0px 0px;">&nbsp;
+                    رمز تحقق إعادة تعيين كلمة المرور</td>
+                </tr>
+                <tr>
+                  <td style="padding:0 25px;">
+
+                    <div style="text-align:center; padding: 10px 0 0 0;">
+                      <a href="https://rakeshmandal.com" title="logo" target="_blank">
+                        <img width="200" height="140" src="images/317.png">
+                      </a>
+                    </div>
+                    <div class="text" style="margin-bottom: 50px;">
+                      <h3
+                        style="font-family: linasans;font-size: 20px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: normal;letter-spacing: normal;text-align: right;color: #000;margin: 0;">
+                        <strong>رمز التحقق لإعادة تعيين كلمة المرور</strong>.</h3>
+                      <p
+                        style="font-family: linasans;font-size: 18px;font-stretch: normal;font-style: normal;line-height: 1.5;letter-spacing: normal;text-align: right;color: #000;">
+                        أهلا بك <span class="user">(اسم المستخدم)</span>
+
+                      </p>
+                    </div>
+
+                    <div class="text" style="margin-bottom: 50px;">
+                      <p
+                        style="font-family: linasans;font-size: 18px;font-stretch: normal;font-style: normal;line-height: normal;letter-spacing: normal;text-align: right;color: #000;">
+                        تلقينا طلب إعادة تعيين كلمة المرور لحسابك (الإيميل المسجل في الحساب) لدى منصة منحة. للقيام بذلك
+                        الرجاء إدخال الرمز المرسل إلى جوالك هنا:
+
+                      </p>
+                    </div>
+
+                    <div class="verification-section">
+                        <form id="verificationForm">
+                          <div class="code-inputs">
+                            <input type="tel" maxlength="1" pattern="[0-9]" class="verification-input" required>
+                            <input type="tel" maxlength="1" pattern="[0-9]" class="verification-input" required>
+                            <input type="tel" maxlength="1" pattern="[0-9]" class="verification-input" required>
+                            <input type="tel" maxlength="1" pattern="[0-9]" class="verification-input" required>
+                            <input type="tel" maxlength="1" pattern="[0-9]" class="verification-input" required>
+                            <input type="tel" maxlength="1" pattern="[0-9]" class="verification-input" required>
+                          </div>
+                        </form>
+                      </div>
+
+                    <a href="login.html"
+                      style="background: #3bada3;
+                      border-radius: 2px;text-decoration:none !important; display:inline-block; font-weight:500;color:#fff;text-transform:uppercase; font-size:14px;padding: 5px 35px 7px 35px;display:inline-block;">إعادة
+                      إرسال رمز التحقق </a>
+                    <p style="font-size: 16px;font-weight: bold;padding: 18px 0;">تحتاج مساعدة؟ <a href="#"
+                        style="color: #2d2da2;font-weight: 400;">لا تتردد في التواصل معنا</a></p>
+
+
+                    <footer>
+                      <div style=" padding:25px 0px 5px 0;">
+                        <div style="text-align: center;">
+                          <a href="https://www.linkedin.com/company/minnha/" style="text-decoration: none; margin-left: 10px;"
+                            target="_blank">
+                            <img src="https://i.ibb.co/CvwsqxH/linkedin.png" alt="linkedin"
+                              style="height: 25px;">
+
+                          </a>
+
+                          <a href="https://twitter.com/Minnha_sa" style="text-decoration: none; margin-left: 10px;"
+                            target="_blank">
+                            <img src="https://i.ibb.co/BzgjGTJ/twitter.png" alt="twitter"
+                              style="height: 25px;">
+
+                          </a>
+                          <a href="https://www.snapchat.com/add/minnha_sa"
+                            style="text-decoration: none; margin-left: 10px;" target="_blank">
+                            <img src="https://i.ibb.co/jz2g1kC/Untitled.png" alt="snapchat"
+                              style="height: 25px;">
+
+                          </a>
+
+                          <a href="https://www.instagram.com/minnha_sa/"
+                            style="text-decoration: none; margin-left: 10px;" target="_blank">
+                            <img src="https://i.ibb.co/nB9z1nN/instagram.png" alt="Instagram"
+                              style="height: 25px;">
+                          </a>
+
+                          <a href="https://www.tiktok.com/@minnha_sa" style="text-decoration: none; margin-left: 10px;"
+                            target="_blank">
+                            <img src="https://i.ibb.co/wY7dpvm/pngaaa-com-6030963.png" alt="tik tok"
+                              style="height: 15px;
+                                                  background: #ededed;
+                                                  padding: 4px 5px;
+                                                  border-radius: 50%;">
+                          </a>
+                        </div>
+                      </div>
+                      <a href="#"
+                        style="color: #444db4;font-size: 13px;margin-left: 15px;font-weight: bold;text-decoration: none; "><span>Minnha.com</span></a>
+                      <p
+                        style="font-size: 11px;color: rgba(61, 62, 74, 0.41176);line-height: 18px;margin: 0 0 0;padding: 15px 0 20px 0;">
+                        &copy; <strong> 2023 المملكة العربية السعودية، جميع الحقوق محفوظة لمنحة</strong> </p>
+
+                    </footer>
+
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td style="height:20px;">&nbsp;</td>
+          </tr>
+
+          <tr>
+            <td style="height:80px;">&nbsp;</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+
+</body>
+
+</html> -->
