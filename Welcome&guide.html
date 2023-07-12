@@ -3,17 +3,28 @@
 
 <head>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-    <title>New password</title>
+    <title>Campaign-Completed</title>
     <meta name="description" content="New Account Email Template.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     <style type="text/css">
         a:hover {text-decoration: underline !important;}
+.step {
+    width: 20%;
+}
         @media screen and (max-width:768px) {
-            .header {
-                padding-right: 0px !important;
-                padding-top:5px;
-                padding-bottom: 5px;
+            .step {
+                width: 40%;
+                flex: none !important;
+                margin-bottom: 20px !important;
+            }
+        }
+        @media screen and (max-width:580px) {
+            .steps {
+                flex-direction: column;
+            }
+            .arrow {
+                transform: rotate(-90deg) translateX(10px);
             }
         }
     </style>
@@ -49,33 +60,48 @@
                                 <div style="position: absolute;top: -10%;left: -1%;z-index: 0;"><img src="https://i.ibb.co/yhdsWr2/square.png" style="width: 120px;" alt=""></div>
 
                                 <tr style="text-align: start;">
-                                    <td class="header" style="height:52px;background: rgb(21,63,95);
-                                    background: linear-gradient(90deg, rgba(21,63,95,1) 35%, rgba(18,68,134,1) 72%, rgba(60,172,162,1) 100%);color: #fff; padding-right: 16px;font-size: 18px;font-weight: bold;border-radius: 5px 5px 0px 0px;">&nbsp; كلمة المرور الجديدة لحسابك في منحة</td>
+                                    <td style="height:52px;background: rgb(21,63,95);
+                                    background: linear-gradient(90deg, rgba(21,63,95,1) 35%, rgba(18,68,134,1) 72%, rgba(60,172,162,1) 100%);color: #fff; padding-right: 16px;font-size: 18px;font-weight: bold;border-radius: 5px 5px 0px 0px;">&nbsp; أهلا بك <span>(اسم المستخدم)</span></td>
                                 </tr>
                                 <tr>
                                     <td style="padding:0 25px;">
                                         
                                         <div style="text-align:center; padding: 10px 0 0 0;">
                                             <a href="https://rakeshmandal.com" title="logo" target="_blank">
-                                            <img width="200" height="140" src="https://moawiabsaiso.github.io/minnha/images/317.png">
+                                            <img width="200" height="140" src="https://moawiabsaiso.github.io/minnha/images/185.png">
                                         </a>
                                         </div>
                                         <div class="text" style="margin-bottom: 50px;">
                                             <h3 style="font-family: linasans;font-size: 20px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: normal;letter-spacing: normal;text-align: right;color: #000;margin: 0;">
-                                                <strong></strong>كلمة المرور الجديدة</h3>
-                                                <p style="font-family: linasans;font-size: 18px;font-stretch: normal;font-style: normal;line-height: 1.5;letter-spacing: normal;text-align: right;color: #000;">  <span class="user">(اسم المستخدم)</span>  تم تعيين كلمة مرور جديدة لتتمكن من الدخول إلى حسابك في منصة منحة والاستفادة من خدماتها. كلمة المرور الجديدة :     
-                                                   </p>
+                                                <strong> أهلا بك في منصة منحة</strong>.</h3>
+                                                <p style="font-family: linasans;font-size: 18px;font-stretch: normal;font-style: normal;line-height: 1.5;letter-spacing: normal;text-align: right;color: #000;"> 
+                                                    نحن سعداء لاختيارك منحة، المنصة السعودية الأولى للدعم التشاركي للتعليم حيث يتمكن الطلاب من إطلاق حملات تبرعات لتمويل منح تعليمية خاصة بهم</p>
                                         </div>
-                                        
-                                        <div class="text" style="margin-bottom: 50px;border: 1px solid gray;
-                                        border: 1px solid #e6e6e6;border-radius: 7px;width: 50%;padding: 8px 0;margin: auto auto 50px auto;">
-                                                <h2 style="margin: 0;">Abcs@123</h2>
+                                        <div class="steps" style="display: flex; align-items: center;flex-wrap: wrap;padding-bottom: 80px; text-align: right;">
+                                            <div class="step" style="margin: 0 5px; flex: 2; border-radius: 4px;    padding: 20px 10px; background-color: rgba(230, 230, 230, 0.3);">
+                                                <img src="images/icons8-university-campus.png" alt="" style="height: 35px;">
+                                                <h6 style="margin: 0;font-size: 10px;font-weight: bolder;">اختيار المؤسسة التعليمية</h6>
+                                            </div>
+                                            <img src="images/icons8-swap.png" class="arrow" alt="" style="width: 16px;height: 14px;flex:none;">
+                                            <div class="step" style="margin: 0 5px; flex: 2; border-radius: 4px;    padding: 20px 12px; background-color: rgba(230, 230, 230, 0.3);">
+                                                <img src="images/icons8-survey.png" alt="" style="height: 35px;">
+                                                <h6 style="margin: 0;font-size: 10px;font-weight: bolder;">تقديم نموذج الطلب</h6>
+                                            </div>
+                                            <img src="images/icons8-swap.png" class="arrow" alt="" style="width: 16px;height: 14px;flex:none;">
+                                            <div class="step" style="margin: 0 5px; flex: 2; border-radius: 4px;    padding: 20px 12px; background-color: rgba(230, 230, 230, 0.3);">
+                                                <img src="images/icons8-flag-filled.png" alt="" style="height: 35px;">
+                                                <h6 style="margin: 0;font-size: 10px;font-weight: bolder;">إطلاق حملة الدعم</h6>
+                                            </div>
+                                            <img src="images/icons8-swap.png" class="arrow" alt="" style="width: 16px;height: 14px;flex:none;">
+                                            <div class="step" style="margin: 0 5px; flex: 2; border-radius: 4px;    padding: 20px 12px; background-color: rgba(230, 230, 230, 0.3);">
+                                                <img src="images/icons8-student-male.png" alt="" style="height: 35px;">
+                                                <h6 style="margin: 0;font-size: 10px;font-weight: bolder;">انضم لمقاعد الدراسة</h6>
+                                            </div>
                                         </div>
-                                               
 
                                         <a href="login.html"
                                             style="background: #3bada3;
-                                            border-radius: 2px;text-decoration:none !important; display:inline-block; font-weight:500;color:#fff;text-transform:uppercase; font-size:14px;padding: 5px 35px 7px 35px;display:inline-block;">تسجيل الدخول </a>
+                                            border-radius: 2px;text-decoration:none !important; display:inline-block; font-weight:500;color:#fff;text-transform:uppercase; font-size:14px;padding: 5px 35px 7px 35px;display:inline-block;">أطلق حملتك الأن</a>
                                             <p style="font-size: 16px;font-weight: bold;padding: 18px 0;">تحتاج مساعدة؟ <a href="#" style="color: #2d2da2;font-weight: 400;">لا تتردد في التواصل معنا</a></p>
                                             
                                             
